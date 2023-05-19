@@ -32,7 +32,7 @@
   ],
   "files.autoSave": "onFocusChange",
   "go.toolsManagement.autoUpdate": true,
-  "go.buildTags": "go1.16",
+  "go.buildTags": "go1.20",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
