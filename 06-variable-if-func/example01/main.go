@@ -60,10 +60,14 @@ func main() {
 	variable()
 
 	for i := 0; i < 5; i++ {
+		// 後進先出先執行defer func
 		defer fmt.Println("defer to:", i)
 		defer func() {
 			fmt.Println("defer func to:", i)
 		}()
+		defer func(val int) {
+			fmt.Println("defer func to(正常):", val)
+		}(i)
 	}
 
 	foo := map[string]string{
