@@ -33,8 +33,9 @@ func main() {
 	ch := make(chan struct{})
 	go func() {
 		<-ch
+		//...do something 
 	}()
-	ch <- struct{}{}
+	ch <- struct{}{}//釋放後執行dosomething
 
 	foo := Light{}
 	foo.On()

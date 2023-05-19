@@ -2,23 +2,34 @@ package main
 
 import "log"
 
-type smtp struct {
-	Address string
-	Port    string
+type Smtp struct {
+	Address  string
+	Port     string
+	Username string
+	Password string
 }
 
-func (s *smtp) send() {
+func (s *Smtp) send() {
 	log.Println("send email")
 }
 
-func newSMTP(address, port string) *smtp {
-	return &smtp{
-		Address: address,
-		Port:    port,
+func newSmtp(address, port, username, password string) *Smtp {
+	return &Smtp{
+		Address:  address,
+		Port:     port,
+		Username: username,
+		Password: password,
 	}
 }
 
+type Option func(*Smtp)
+
+func WithPort(port string) Option {
+	return func(s *Smtp) {
+		s.Port = port
+	}
+}
 func main() {
-	foo := newSMTP("127.0.0.1", "25")
+	foo := newSmtp("127.0.0.1", "25")
 	foo.send()
 }
